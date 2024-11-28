@@ -24,14 +24,14 @@ namespace TaskManager
             _task = task;
             TaskEntry.Text = _task.Name;
             DescriptionEntry.Text = _task.Description;
-            DateEntry.Text = _task.DueDate;
+            DateEntry.Date = DateTime.Parse(_task.DueDate);
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
             string taskTitle = TaskEntry.Text;
             string taskDescription = DescriptionEntry.Text;
-            string taskDueDate = DateEntry.Text;
+            string taskDueDate = DateEntry.Date.ToString("MM/dd/YYYY");
 
             // Checking if all fields are filled
             if (string.IsNullOrWhiteSpace(taskTitle) ||
@@ -69,7 +69,7 @@ namespace TaskManager
             // Clear the entries after navigating back
             TaskEntry.Text = string.Empty;
             DescriptionEntry.Text = string.Empty;
-            DateEntry.Text = string.Empty;
+            DateEntry.Date = DateTime.Today;
         }
     }
 }

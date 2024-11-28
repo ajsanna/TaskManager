@@ -50,11 +50,15 @@
                     Text="Due Date"
                     FontSize="16"
                     TextColor="#666" />
-                <Entry 
+                <DatePicker
                     x:Name="DateEntry"
-                    Placeholder="MM/DD/YYYY"
+                    Format="d"
+                    MinimumDate="2020-01-01"
+                    MaximumDate="2049-01-01"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
                     FontSize="16"
-                    TextColor="Black" />
+                    TextColor="Black"/>
             </VerticalStackLayout>
         </Frame>
 
