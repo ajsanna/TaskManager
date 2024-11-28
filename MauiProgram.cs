@@ -20,7 +20,7 @@ namespace TaskManager
 #endif
 
             // Register services with the dependency injection container
-            builder.Services.AddSingleton<TodoListPage>();
+            //builder.Services.AddSingleton<TodoListPage>();
             builder.Services.AddTransient<TodoItemPage>();
             builder.Services.AddSingleton<TodoItemDatabase>();
 

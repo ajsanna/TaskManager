@@ -1,4 +1,16 @@
-﻿using System;
+﻿namespace TaskManager
+{
+    public partial class TodoItemPage : ContentPage
+    {
+        public TodoItemPage()
+        {
+            InitializeComponent();
+        }
+    }
+}
+
+/*
+ using System;
 using Microsoft.Maui.Controls;
 using TaskManager;
 
@@ -43,3 +55,6 @@ namespace TaskManager
         }
     }
 }
+
+ 
+ */

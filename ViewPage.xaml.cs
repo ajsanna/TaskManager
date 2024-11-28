@@ -17,9 +17,15 @@ namespace TaskManager
         private async void LoadTasks()
         {
             var tasks = await _database.GetItemsAsync(); // Fetch tasks from database
-
-            // You could use a ListView or CollectionView here to display the tasks
-            TasksListView.ItemsSource = tasks;
+            TasksListView.ItemsSource = tasks; // Bind tasks to ListView
         }
+
+        // Event handler for when a task frame is clicked
+        private async void OnTaskTapped(object sender, ItemTappedEventArgs e)
+        {
+            // Navigate to the TodoItemPage when a task is tapped, without passing any data
+            await Navigation.PushAsync(new TodoItemPage());
+        }
+
     }
 }

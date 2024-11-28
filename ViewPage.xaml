@@ -5,17 +5,48 @@
              Title="View Tasks">
 
     <VerticalStackLayout>
-        <Label Text="View Tasks Here!" 
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" />
+        <!-- Page Header -->
+        <Label Text="To-Do List"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="10" />
 
-        <!-- ListView to display tasks -->
-        <ListView x:Name="TasksListView">
+        <!-- List of Tasks -->
+        <ListView x:Name="TasksListView"
+                  ItemTapped="OnTaskTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                    <ViewCell>
+                        <Frame Padding="10"
+                               Margin="5"
+                               CornerRadius="10"
+                               BackgroundColor="White">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Task Title -->
+                                <Label Text="{Binding Name}"
+                                       FontSize="16"
+                                       Grid.Column="0"
+                                       TextColor="#333" />
+
+                                <!-- Due Date -->
+                                <Label Text="{Binding DueDate}"
+                                       FontSize="16"
+                                       Grid.Column="1"
+                                       TextColor="#666"
+                                       HorizontalTextAlignment="End" />
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </VerticalStackLayout>
+
+
 </ContentPage>
