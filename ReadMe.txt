@@ -1,7 +1,7 @@
 
 CS4080 Final Project: Task Manager 
 
-Alex Sanna, John Hager, Ariana V. Taylor Knobloch
+Alex Sanna, John Hager, Ariana V, Taylor Knobloch
 
 Description>
 	A simple graphical interface that supports the displayal of TODO taskss 
@@ -12,4 +12,4 @@ Second Step: Set up data collection through the GI: (textboxes, etc...)
 .
 .
 
-Incoorperate the functionality described above, and finally link in the makeshift storage system for memory purposes. 
+Incorperate the functionality described above, and finally link in the makeshift storage system for memory purposes. 
