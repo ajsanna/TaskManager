@@ -31,7 +31,7 @@ namespace TaskManager
         {
             string taskTitle = TaskEntry.Text;
             string taskDescription = DescriptionEntry.Text;
-            string taskDueDate = DateEntry.Date.ToString("MM/dd/YYYY");
+            string taskDueDate = DateEntry.Date.ToString("MM/dd/yyyy");
 
             // Checking if all fields are filled
             if (string.IsNullOrWhiteSpace(taskTitle) ||
