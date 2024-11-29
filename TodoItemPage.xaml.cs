@@ -17,16 +17,23 @@
 
         async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-            await _db!.DeleteItemAsync(_task!);
+            bool yesDelete = await Application.Current.MainPage.DisplayAlert("Confirm Delete", $"Confirm Delete Task {_task!.Name}", "Delete", "Cancel");
+            if (yesDelete)
+            {
+                await _db!.DeleteItemAsync(_task!);
+                await Navigation.PopAsync();
+            }
+        }
+
+        async void UpdateButton_Clicked(object sender, EventArgs e)
+        {
+            await _db!.SaveItemAsync(_task!);
             await Navigation.PopAsync();
         }
 
-        // Update dB on setting task complete
-        async void IsDoneCheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        async void CancelButton_Clicked(object sender, EventArgs e)
         {
-            if (null != _db && _task != null) {
-                await _db.SaveItemAsync(_task);
-            }
+            await Navigation.PopAsync();
         }
     }
 }

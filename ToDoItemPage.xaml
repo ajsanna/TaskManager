@@ -45,9 +45,18 @@
         <HorizontalStackLayout HorizontalOptions="Center">
             <Label Text="Task Complete:"/>
             <CheckBox x:Name="IsDoneCheckBox"
-                      IsChecked="{Binding Done, Mode=TwoWay}"
-                      CheckedChanged="IsDoneCheckBox_CheckedChanged"/>
+                      IsChecked="{Binding Done, Mode=TwoWay}"/>
         </HorizontalStackLayout>
+        
+        <!-- Update -->
+        <Button x:Name="UpdateButton"
+        Text="Update"
+        Clicked="UpdateButton_Clicked"/>
+        
+        <!-- Cancel -->
+        <Button x:Name="CancelButton"
+        Text="Cancel"
+        Clicked="CancelButton_Clicked"/>
         
         <!-- Delete -->
         <Button x:Name="DeleteButton"
