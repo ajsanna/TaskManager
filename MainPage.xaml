@@ -3,15 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TaskManager.MainPage">
 
-    <ScrollView>
+    <ScrollView
+        VerticalOptions="CenterAndExpand">
         <VerticalStackLayout
+            VerticalOptions="Center"
             Padding="30,0"
             Spacing="25">
 
             <Label
                 Text="C# - A, TODO List APP!"
                 Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+                SemanticProperties.HeadingLevel="Level1" 
+                HeightRequest="100"/>
 
             <Button
                 x:Name="AddTaskBtn"
