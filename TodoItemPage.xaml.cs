@@ -2,12 +2,21 @@
 {
     public partial class TodoItemPage : ContentPage
     {
-        public TodoItemPage()
+        private TodoItem _task;
+
+        public TodoItemPage(TodoItem task)
         {
             InitializeComponent();
+            _task = task;
+
+            // Set the fields with task data
+            TaskTitleLabel.Text = _task.Name;
+            TaskDescriptionLabel.Text = _task.Description;
+            TaskDueDateLabel.Text = _task.DueDate;
         }
     }
 }
+
 
 /*
  using System;

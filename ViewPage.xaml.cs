@@ -20,12 +20,17 @@ namespace TaskManager
             TasksListView.ItemsSource = tasks; // Bind tasks to ListView
         }
 
-        // Event handler for when a task frame is clicked
+        // Event handler for when a task is tapped
         private async void OnTaskTapped(object sender, ItemTappedEventArgs e)
         {
-            // Navigate to the TodoItemPage when a task is tapped, without passing any data
-            await Navigation.PushAsync(new TodoItemPage());
-        }
+            if (e.Item is TodoItem tappedTask)
+            {
+                // Navigate to the TodoItemPage with the tapped task
+                await Navigation.PushAsync(new TodoItemPage(tappedTask));
+            }
 
+            // Deselect the item in the ListView
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }
