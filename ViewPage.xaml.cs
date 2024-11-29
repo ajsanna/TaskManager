@@ -32,5 +32,12 @@ namespace TaskManager
             // Deselect the item in the ListView
             ((ListView)sender).SelectedItem = null;
         }
+
+        // Must refresh tasks on load (In case of delete/add)
+        protected override async void OnNavigatedTo(NavigatedToEventArgs args)
+        {
+            base.OnNavigatedTo(args);
+            LoadTasks();
+        }
     }
 }
