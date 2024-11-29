@@ -13,8 +13,8 @@
 
             // Adjust the window size and position (Windows/macOS)
 #if WINDOWS || MACCATALYST
-            var screenWidth = DeviceDisplay.MainDisplayInfo.Width;
-            var screenHeight = DeviceDisplay.MainDisplayInfo.Height;
+            var screenWidth = DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density;
+            var screenHeight = DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density;
             var windowWidth = 600;
             var windowHeight = 800;
 
@@ -27,8 +27,9 @@
             window.X = windowX;
             window.Y = windowY;
 
-            window.MinimumWidth = windowWidth;
-            window.MinimumHeight = windowHeight;
+            // Buttons and tasks squish to unusable below 300
+            window.MinimumWidth = 300;
+            window.MinimumHeight = 300;
 #endif
 
             return window;
