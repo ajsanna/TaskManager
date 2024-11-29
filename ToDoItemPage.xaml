@@ -2,25 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TaskManager.TodoItemPage">
-    <VerticalStackLayout 
+    <ScrollView
+        VerticalOptions="CenterAndExpand">
+        <VerticalStackLayout 
         Spacing="10"
         Padding="20">
 
-        <!-- Task Title -->
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Label Text="Task:"
+            <!-- Task Title -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Task:"
                    FontSize="18"
                    FontAttributes="Bold"
                    TextColor="#333" />
-            <Label x:Name="TaskTitleLabel"
+                <Label x:Name="TaskTitleLabel"
                    Text="{Binding Name}"
                    FontSize="18"
                    TextColor="#666"
                    Margin="5,0,0,0" />
-        </HorizontalStackLayout>
+            </HorizontalStackLayout>
 
-        <!-- Task Description -->
-        <Label x:Name="TaskDescriptionLabel"
+            <!-- Task Description -->
+            <Label x:Name="TaskDescriptionLabel"
                Text="{Binding Description}"
                FontSize="16"
                TextColor="#666"
@@ -28,39 +30,40 @@
                LineBreakMode="WordWrap"
                Margin="0,10,0,10" />
 
-        <!-- Due Date -->
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Label Text="Due:"
+            <!-- Due Date -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Due:"
                    FontSize="18"
                    FontAttributes="Bold"
                    TextColor="#333" />
-            <Label x:Name="TaskDueDateLabel"
+                <Label x:Name="TaskDueDateLabel"
                    Text="{Binding DueDate}"
                    FontSize="18"
                    TextColor="#666"
                    Margin="5,0,0,0" />
-        </HorizontalStackLayout>
+            </HorizontalStackLayout>
 
-        <!-- Task Is Done -->
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Label Text="Task Complete:"/>
-            <CheckBox x:Name="IsDoneCheckBox"
+            <!-- Task Is Done -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Task Complete:"/>
+                <CheckBox x:Name="IsDoneCheckBox"
                       IsChecked="{Binding Done, Mode=TwoWay}"/>
-        </HorizontalStackLayout>
-        
-        <!-- Update -->
-        <Button x:Name="UpdateButton"
+            </HorizontalStackLayout>
+
+            <!-- Update -->
+            <Button x:Name="UpdateButton"
         Text="Update"
         Clicked="UpdateButton_Clicked"/>
-        
-        <!-- Cancel -->
-        <Button x:Name="CancelButton"
+
+            <!-- Cancel -->
+            <Button x:Name="CancelButton"
         Text="Cancel"
         Clicked="CancelButton_Clicked"/>
-        
-        <!-- Delete -->
-        <Button x:Name="DeleteButton"
+
+            <!-- Delete -->
+            <Button x:Name="DeleteButton"
                 Text="Delete"
                 Clicked="DeleteButton_Clicked"/>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
