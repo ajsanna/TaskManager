@@ -11,6 +11,12 @@
                 <Style.Triggers>
                     <DataTrigger TargetType="Label" Binding="{Binding Done}" Value="True">
                         <Setter Property="TextDecorations" Value="Strikethrough"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="taskBorderStyle" TargetType="Border">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding Done}" Value="True">
                         <Setter Property="BackgroundColor" Value="Gray"/>
                     </DataTrigger>
                 </Style.Triggers>
@@ -18,50 +24,52 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <VerticalStackLayout>
-        <!-- Page Header -->
-        <Label Text="To-Do List"
+    <ScrollView>
+        <VerticalStackLayout>
+            <!-- Page Header -->
+            <Label Text="To-Do List"
                FontSize="24"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                Margin="10" />
 
-        <!-- List of Tasks -->
-        <ListView x:Name="TasksListView"
+            <!-- List of Tasks -->
+            <ListView x:Name="TasksListView"
                   ItemTapped="OnTaskTapped">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Border Padding="10"
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Border Padding="10"
                                Margin="5"
                                StrokeShape="RoundRectangle 10,10,10,10"
-                               BackgroundColor="White">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                               BackgroundColor="White"
+                               Style="{DynamicResource taskBorderStyle}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
 
-                                <!-- Task Title -->
-                                <Label Text="{Binding Name}"
+                                    <!-- Task Title -->
+                                    <Label Text="{Binding Name}"
                                        FontSize="16"
                                        Grid.Column="0"
                                        TextColor="#333" 
                                        Style="{DynamicResource taskLabelStyle}"/>
 
-                                <!-- Due Date -->
-                                <Label Text="{Binding DueDate}"
+                                    <!-- Due Date -->
+                                    <Label Text="{Binding DueDate}"
                                        FontSize="16"
                                        Grid.Column="1"
                                        TextColor="#666"
                                        HorizontalTextAlignment="End" />
-                            </Grid>
-                        </Border>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </VerticalStackLayout>
-
+                                </Grid>
+                            </Border>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
