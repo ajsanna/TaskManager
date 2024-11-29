@@ -9,20 +9,24 @@
         {
             InitializeComponent();
             _task = task;
+            BindingContext = _task;
 
             // Get SQL db
             _db = IPlatformApplication.Current.Services.GetService<TodoItemDatabase>();
-
-            // Set the fields with task data
-            TaskTitleLabel.Text = _task.Name;
-            TaskDescriptionLabel.Text = _task.Description;
-            TaskDueDateLabel.Text = _task.DueDate;
         }
 
         async void DeleteButton_Clicked(object sender, EventArgs e)
         {
             await _db.DeleteItemAsync(_task);
             await Navigation.PopAsync();
+        }
+
+        // Update dB on setting task complete
+        async void IsDoneCheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (null != _db && _task != null) {
+                await _db.SaveItemAsync(_task);
+            }
         }
     }
 }

@@ -13,6 +13,7 @@
                    FontAttributes="Bold"
                    TextColor="#333" />
             <Label x:Name="TaskTitleLabel"
+                   Text="{Binding Name}"
                    FontSize="18"
                    TextColor="#666"
                    Margin="5,0,0,0" />
@@ -20,6 +21,7 @@
 
         <!-- Task Description -->
         <Label x:Name="TaskDescriptionLabel"
+               Text="{Binding Description}"
                FontSize="16"
                TextColor="#666"
                HorizontalTextAlignment="Center"
@@ -33,9 +35,18 @@
                    FontAttributes="Bold"
                    TextColor="#333" />
             <Label x:Name="TaskDueDateLabel"
+                   Text="{Binding DueDate}"
                    FontSize="18"
                    TextColor="#666"
                    Margin="5,0,0,0" />
+        </HorizontalStackLayout>
+
+        <!-- Task Is Done -->
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Task Complete:"/>
+            <CheckBox x:Name="IsDoneCheckBox"
+                      IsChecked="{Binding Done, Mode=TwoWay}"
+                      CheckedChanged="IsDoneCheckBox_CheckedChanged"/>
         </HorizontalStackLayout>
         
         <!-- Delete -->
