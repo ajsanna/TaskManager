@@ -14,7 +14,7 @@
             TextColor="#333" />
 
         <!-- Title Input -->
-        <Frame BackgroundColor="White" CornerRadius="10" Padding="10">
+        <Border BackgroundColor="White" StrokeShape="RoundRectangle 10,10,10,10" Padding="10">
             <VerticalStackLayout>
                 <Label 
                     Text="Title"
@@ -26,10 +26,10 @@
                     FontSize="16"
                     TextColor="Black" />
             </VerticalStackLayout>
-        </Frame>
+        </Border>
 
         <!-- Description Input -->
-        <Frame BackgroundColor="White" CornerRadius="10" Padding="10">
+        <Border BackgroundColor="White" StrokeShape="RoundRectangle 10,10,10,10" Padding="10">
             <VerticalStackLayout>
                 <Label 
                     Text="Description"
@@ -41,10 +41,10 @@
                     FontSize="16"
                     TextColor="Black"/>
             </VerticalStackLayout>
-        </Frame>
+        </Border>
 
         <!-- Due Date Input -->
-        <Frame BackgroundColor="White" CornerRadius="10" Padding="10">
+        <Border BackgroundColor="White" StrokeShape="RoundRectangle 10,10,10,10" Padding="10">
             <VerticalStackLayout>
                 <Label 
                     Text="Due Date"
@@ -60,7 +60,7 @@
                     FontSize="16"
                     TextColor="Black"/>
             </VerticalStackLayout>
-        </Frame>
+        </Border>
 
         <!-- Submit Button -->
         <Button 

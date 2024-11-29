@@ -32,9 +32,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame Padding="10"
+                        <Border Padding="10"
                                Margin="5"
-                               CornerRadius="10"
+                               StrokeShape="RoundRectangle 10,10,10,10"
                                BackgroundColor="White">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -56,7 +56,7 @@
                                        TextColor="#666"
                                        HorizontalTextAlignment="End" />
                             </Grid>
-                        </Frame>
+                        </Border>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
