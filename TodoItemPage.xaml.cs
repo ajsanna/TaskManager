@@ -2,8 +2,8 @@
 {
     public partial class TodoItemPage : ContentPage
     {
-        private TodoItem _task;
-        private TodoItemDatabase _db;
+        private TodoItem? _task;
+        private TodoItemDatabase? _db;
 
         public TodoItemPage(TodoItem task)
         {
@@ -12,12 +12,12 @@
             BindingContext = _task;
 
             // Get SQL db
-            _db = IPlatformApplication.Current.Services.GetService<TodoItemDatabase>();
+            _db = IPlatformApplication.Current!.Services.GetService<TodoItemDatabase>();
         }
 
         async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-            await _db.DeleteItemAsync(_task);
+            await _db!.DeleteItemAsync(_task!);
             await Navigation.PopAsync();
         }
 

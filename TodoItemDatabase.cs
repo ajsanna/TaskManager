@@ -9,7 +9,7 @@ namespace TaskManager
 {
     public class TodoItemDatabase  // Changed from internal to public
     {
-        SQLiteAsyncConnection Database;
+        SQLiteAsyncConnection? Database;
 
         public TodoItemDatabase()
         {
@@ -29,34 +29,34 @@ namespace TaskManager
         public async Task<List<TodoItem>> GetItemsAsync()
         {
             await Init();
-            return await Database.Table<TodoItem>().ToListAsync();
+            return await Database!.Table<TodoItem>().ToListAsync();
         }
 
         public async Task<List<TodoItem>> GetItemsNotDoneAsync()
         {
             await Init();
-            return await Database.Table<TodoItem>().Where(t => t.Done).ToListAsync();
+            return await Database!.Table<TodoItem>().Where(t => t.Done).ToListAsync();
         }
 
         public async Task<TodoItem> GetItemAsync(int id)
         {
             await Init();
-            return await Database.Table<TodoItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return await Database!.Table<TodoItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
 
         public async Task<int> SaveItemAsync(TodoItem item)
         {
             await Init();
             if (item.ID != 0)
-                return await Database.UpdateAsync(item);
+                return await Database!.UpdateAsync(item);
             else
-                return await Database.InsertAsync(item);
+                return await Database!.InsertAsync(item);
         }
 
         public async Task<int> DeleteItemAsync(TodoItem item)
         {
             await Init();
-            return await Database.DeleteAsync(item);
+            return await Database!.DeleteAsync(item);
         }
     }
 }

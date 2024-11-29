@@ -6,8 +6,8 @@ namespace TaskManager
 {
     public partial class AddPage : ContentPage
     {
-        private readonly TodoItemDatabase _database;
-        private TodoItem _task;
+        private readonly TodoItemDatabase? _database;
+        private TodoItem? _task;
 
         // Constructor for adding a new task
         public AddPage(TodoItemDatabase database)
@@ -24,7 +24,7 @@ namespace TaskManager
             _task = task;
             TaskEntry.Text = _task.Name;
             DescriptionEntry.Text = _task.Description;
-            DateEntry.Date = DateTime.Parse(_task.DueDate);
+            DateEntry.Date = DateTime.Parse(_task.DueDate!);
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace TaskManager
                 _task.Name = taskTitle;
                 _task.Description = taskDescription;
                 _task.DueDate = taskDueDate;
-                await _database.SaveItemAsync(_task);
+                await _database!.SaveItemAsync(_task);
             }
             else // Otherwise, create a new task
             {
@@ -60,7 +60,7 @@ namespace TaskManager
                     DueDate = taskDueDate,
                     Done = false // Default value for new tasks (not done yet)
                 };
-                await _database.SaveItemAsync(newTask);
+                await _database!.SaveItemAsync(newTask);
             }
 
             // Navigate back after saving
