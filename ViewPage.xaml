@@ -4,6 +4,20 @@
              x:Class="TaskManager.ViewPage"
              Title="View Tasks">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Strikethrough label when task is Done -->
+            <Style x:Key="taskLabelStyle" TargetType="Label">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Done}" Value="True">
+                        <Setter Property="TextDecorations" Value="Strikethrough"/>
+                        <Setter Property="BackgroundColor" Value="Gray"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <VerticalStackLayout>
         <!-- Page Header -->
         <Label Text="To-Do List"
@@ -32,7 +46,8 @@
                                 <Label Text="{Binding Name}"
                                        FontSize="16"
                                        Grid.Column="0"
-                                       TextColor="#333" />
+                                       TextColor="#333" 
+                                       Style="{DynamicResource taskLabelStyle}"/>
 
                                 <!-- Due Date -->
                                 <Label Text="{Binding DueDate}"
