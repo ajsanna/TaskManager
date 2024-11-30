@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TaskManager"
              x:Class="TaskManager.TodoItemPage">
+    <ContentPage.Resources>
+        <local:DatePickerStringConverter x:Key="dateToString"/>
+    </ContentPage.Resources>
     <ScrollView
         VerticalOptions="CenterAndExpand">
         <VerticalStackLayout 
@@ -36,9 +40,10 @@
                 <Label Text="Due:"
                    FontSize="Large"
                    FontAttributes="Bold"/>
-                <Label x:Name="TaskDueDateLabel"
-                       VerticalOptions="Center"
-                   Text="{Binding DueDate}"
+                <DatePicker x:Name="TaskDueDateLabel"
+                   VerticalOptions="Center"
+                   Date="{Binding DueDate, Mode=TwoWay, Converter={StaticResource dateToString}}"
+                   Format="d"
                    FontSize="Medium"
                    Margin="5,0,0,0" />
             </HorizontalStackLayout>
