@@ -7,14 +7,15 @@ using SQLite;
 
 namespace TaskManager
 {
-    public class TodoItem  // Changed from internal to public
+    public class ToDoItem  // Changed from internal to public
     {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
-        public string? Name { get; set; }
-        public string? Description { get; set; }
-        public string? DueDate { get; set; }
-        public bool Done { get; set; }
+        [PrimaryKey, AutoIncrement] // setting up details of the database
+        public int ID { get; set; } //setting and getters to view the data, no manipultation
+        public string? Name { get; set; } //establishing name field
+        public string? Description { get; set; }//establishing description field
+        public string? DueDate { get; set; }//establishing description field
+        public bool Done { get; set; }//establishing done option 
     }
 }
+
 

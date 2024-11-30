@@ -25,7 +25,7 @@ namespace TaskManager
         // Event handler for when a task is tapped
         private async void OnTaskTapped(object sender, ItemTappedEventArgs e)
         {
-            if (e.Item is TodoItem tappedTask)
+            if (e.Item is ToDoItem tappedTask)
             {
                 // Navigate to the TodoItemPage with the tapped task
                 await Navigation.PushAsync(new TodoItemPage(tappedTask));

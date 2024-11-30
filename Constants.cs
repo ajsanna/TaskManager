@@ -7,21 +7,21 @@ using Microsoft.Maui.Storage;
 
 namespace TaskManager
 {
-    public class Constants  // Changed from internal to public
+    //establishing contrants for the database
+    public class Constants  // put as public instead of internal for class access
     {
-        public const string DatabaseFilename = "TodoSQLite.db3";
+        public const string DBFilename = "TodoCapstoneData.db3";
 
-        public const SQLite.SQLiteOpenFlags Flags =
-            // open the database in read/write mode
+        public const SQLite.SQLiteOpenFlags trigger =
+            // when the database is opened, it will open is read/write mode 
             SQLite.SQLiteOpenFlags.ReadWrite |
-            // create the database if it doesn't exist
+            // if the database doesn't exists, this allows the database to be created
             SQLite.SQLiteOpenFlags.Create |
-            // enable multi-threaded database access
+            // allow database access to  multi-threads
             SQLite.SQLiteOpenFlags.SharedCache;
 
-        public static string DatabasePath =>
-            Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+        public static string DBPath =>
+            Path.Combine(FileSystem.AppDataDirectory, DBFilename);
     }
 }
-
 

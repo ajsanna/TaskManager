@@ -2,10 +2,10 @@
 {
     public partial class TodoItemPage : ContentPage
     {
-        private TodoItem? _task;
+        private ToDoItem? _task;
         private TodoItemDatabase? _db;
 
-        public TodoItemPage(TodoItem task)
+        public TodoItemPage(ToDoItem task)
         {
             InitializeComponent();
             _task = task;

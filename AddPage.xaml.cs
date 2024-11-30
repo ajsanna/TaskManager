@@ -7,7 +7,7 @@ namespace TaskManager
     public partial class AddPage : ContentPage
     {
         private readonly TodoItemDatabase? _database;
-        private TodoItem? _task;
+        private ToDoItem? _task;
 
         // Constructor for adding a new task
         public AddPage(TodoItemDatabase database)
@@ -17,7 +17,7 @@ namespace TaskManager
         }
 
         // Constructor for editing an existing task
-        public AddPage(TodoItemDatabase database, TodoItem task)
+        public AddPage(TodoItemDatabase database, ToDoItem task)
         {
             InitializeComponent();
             _database = database;
@@ -53,7 +53,7 @@ namespace TaskManager
             }
             else // Otherwise, create a new task
             {
-                TodoItem newTask = new TodoItem
+                ToDoItem newTask = new ToDoItem
                 {
                     Name = taskTitle,
                     Description = taskDescription,
