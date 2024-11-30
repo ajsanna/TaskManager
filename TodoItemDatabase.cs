@@ -58,6 +58,14 @@ namespace TaskManager
             await Init();
             return await Database!.DeleteAsync(item);
         }
+
+        /*
+        public async Task DeleteAllTasksAsync()
+        {
+            await Init(); // Ensure the database is initialized
+            await Database!.ExecuteAsync("DELETE FROM TodoItem");
+        } */
+
     }
 }
 

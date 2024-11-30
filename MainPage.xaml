@@ -11,17 +11,22 @@
             Spacing="25">
 
             <Label
-                Text="C# - A, TODO List APP!"
+                Text="C# - A"
                 Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" 
-                HeightRequest="100"/>
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="TODO List APP!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
 
             <Button
                 x:Name="AddTaskBtn"
                 Text="Add Task" 
                 SemanticProperties.Hint="Add a task to your to do list"
                 Clicked="AddTaskBtn_Clicked"
-                HorizontalOptions="Fill" />
+                HorizontalOptions="Fill"
+                Margin="0,25"/>
             
             <Button
                 x:Name="ViewTasksBtn"
