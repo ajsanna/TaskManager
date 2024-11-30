@@ -11,7 +11,11 @@ namespace TaskManager
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            return DateTime.Parse((string)value!);
+            // Set a default date of today
+            DateTime date = DateTime.Today;
+            // Attempt to parse the date given
+            _ = DateTime.TryParse((string)value!, out date);
+            return date;
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
