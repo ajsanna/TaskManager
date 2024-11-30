@@ -11,6 +11,8 @@ namespace TaskManager
 
             // Load tasks when the page is created
             LoadTasks();
+            
+            //ClearDatabase();
         }
 
         // Method to load tasks from the database
@@ -39,5 +41,13 @@ namespace TaskManager
             base.OnNavigatedTo(args);
             LoadTasks();
         }
+
+        /*
+        private async void ClearDatabase()
+        {
+            await _database.DeleteAllTasksAsync();
+            Console.WriteLine("All tasks cleared.");
+        }
+        */
     }
 }
